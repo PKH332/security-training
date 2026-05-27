@@ -485,10 +485,13 @@ function submitCompletion() {
   var email = document.getElementById('f-email').value.trim();
   if (!name || !email) { alert('Please enter your full name and work email.'); return; }
   var total = quizData.length;
-  var formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeRjc_fuAbjgL5bfCKlVvl1P-RAs6kL56JMGg6aAZvyOdvPUg/viewform?usp=pp_url"
-    + "&entry.1341532362=" + encodeURIComponent(name)
-    + "&entry.1814995661=" + encodeURIComponent(score + '/' + total);
-  window.open(formUrl, '_blank');
+  var scriptUrl = "https://script.google.com/macros/s/AKfycbz-9HGRjE42DyFfhOsTNJekFRKaJ0q3IpyNIg1n8vX140XvBo1wE4P9g02Bkbxe1sXb/exec";
+  fetch(scriptUrl, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name: name, email: email, score: score + '/' + total })
+  });
   document.getElementById('collect-form-wrap').style.display = 'none';
   document.getElementById('success-msg').style.display = 'block';
 }
