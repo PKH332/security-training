@@ -216,6 +216,14 @@ code { font-family: var(--mono); font-size: 12px; background: var(--bg2); paddin
       <div class="ann-num bad">2</div>
       <div class="ann-text"><strong>Check the URL before entering anything</strong><span>Even if the page looks familiar, always verify the URL first. On a fake domain, anything you type goes straight to an attacker.</span></div>
     </div>
+    <div class="annotation-item bad">
+      <div class="ann-num bad">3</div>
+      <div class="ann-text"><strong>Just clicking a link can be enough</strong><span>You don't always need to enter your credentials to be at risk. Some phishing links trigger an automatic malware download in the background — software that silently steals your data, passwords or files without you knowing. This is why the rule is simple: if the URL looks wrong, don't click at all.</span></div>
+    </div>
+    <div class="annotation-item good">
+      <div class="ann-num good">✓</div>
+      <div class="ann-text"><strong>Hover over links before clicking</strong><span>On a computer, hover your mouse over any link without clicking. The real destination URL will appear at the bottom of your browser. If it doesn't match the company domain you expect, don't click. On mobile, press and hold the link to preview the URL before opening it.</span></div>
+    </div>
     <div class="callout callout-red" style="margin-top:1.5rem">
       <strong>Rule: Check the address bar before you type anything.</strong>
       If the URL doesn't match the real company domain exactly, close the tab and report it to IT.
@@ -331,92 +339,92 @@ code { font-family: var(--mono); font-size: 12px; background: var(--bg2); paddin
 var quizData = [
   {
     q: "You receive an email from hr@ebtechgroup-team.com asking you to verify your account. What do you do?",
-    opts: ["Click the link since it mentions EB Tech", "Check the domain — ebtechgroup-team.com is not our real domain, report to IT", "Reply to confirm if it's real", "Ignore it"],
-    correct: 1,
-    fb: { right: "Correct — ebtechgroup-team.com is a lookalike domain, not our real ebtechgroup.com. Always check the full domain carefully.", wrong: "ebtechgroup-team.com is not our real domain. Attackers add words like '-team' to trick you into thinking it's legitimate." }
+    opts: ["Reply to confirm if it's real", "Click the link since it mentions EB Tech", "Check the domain — ebtechgroup-team.com is not our real domain, report to IT", "Ignore it and delete it"],
+    correct: 2,
+    fb: { right: "Correct — ebtechgroup-team.com is a lookalike domain. Attackers add words like '-team' to trick you.", wrong: "ebtechgroup-team.com is not our real domain. Always check the full domain carefully before taking any action." }
   },
   {
     q: "You click a link and land on a page asking for your credentials. The URL shows boxly-login.com. What do you do?",
-    opts: ["Enter your details since it mentions Boxly", "Close the tab immediately and report to IT", "Check if the page design looks right", "Enter only your email but not your password"],
-    correct: 1,
+    opts: ["Close the tab immediately and report to IT", "Enter your details since it mentions Boxly", "Enter only your email but not your password", "Check if the page design looks right"],
+    correct: 0,
     fb: { right: "Correct — boxly-login.com is not our real domain. Close the tab and report immediately.", wrong: "The page design means nothing — attackers copy real sites exactly. The URL is the only reliable check." }
   },
   {
     q: "A colleague forwards you an email saying 'is this real?' The email asks to reset a password urgently. What is your first check?",
-    opts: ["Whether the email design looks professional", "The sender domain", "Whether the colleague thinks it's real", "Whether the link works"],
-    correct: 1,
+    opts: ["Whether the colleague thinks it's real", "Whether the link works when you hover over it", "Whether the email design looks professional", "The sender domain"],
+    correct: 3,
     fb: { right: "Correct — the sender domain is always your first check, regardless of how professional the email looks.", wrong: "Design and colleague opinion are not reliable. The sender domain is always the first thing to verify." }
   },
   {
     q: "You entered your password on a page before realising the URL looked suspicious. What do you do?",
-    opts: ["Monitor your account for a few days", "Change your password and report to IT immediately", "Tell IT only if something goes wrong", "Nothing since it was probably fine"],
+    opts: ["Tell IT only if something goes wrong", "Change your password and report to IT immediately", "Nothing since it was probably fine", "Monitor your account for a few days"],
     correct: 1,
     fb: { right: "Correct — speed is critical. Change your password immediately and report to IT so they can check for unauthorised access.", wrong: "Waiting gives attackers time to act. Report immediately — every minute counts." }
   },
   {
     q: "You receive an email saying your invoice is attached and you need to approve it urgently. The sender is accounts@boxly-finance.com. What do you do?",
-    opts: ["Open the attachment since it's about invoices", "Check the domain — boxly-finance.com is not our real domain, report to IT", "Forward it to your manager to handle", "Reply asking for more details"],
-    correct: 1,
+    opts: ["Forward it to your manager to handle", "Reply asking for more details to verify", "Open the attachment since it's about invoices", "Check the domain — boxly-finance.com is not our real domain, report to IT"],
+    correct: 3,
     fb: { right: "Correct — boxly-finance.com is a fake domain. Never open attachments from unverified senders.", wrong: "Replying or forwarding doesn't make it safe. Verify the domain first — boxly-finance.com is not real." }
   },
   {
     q: "An email arrives from it-support@ebtechgroup.com asking you to click a link to update your security settings. What do you do?",
-    opts: ["Click the link since it's from our real domain", "Go directly to the settings page yourself without clicking the link", "Reply to confirm it's real", "Delete it as it might be spam"],
-    correct: 1,
+    opts: ["Go directly to the settings page yourself without clicking the link", "Reply to confirm it's real first", "Click the link since it's from our real domain", "Delete it as it might be spam"],
+    correct: 0,
     fb: { right: "Correct — even emails from real domains can be compromised. Always navigate to settings directly rather than clicking email links.", wrong: "Even a real sender domain doesn't make a link safe. Always go directly to the site yourself." }
   },
   {
     q: "You hover over a link in an email and see it points to secure-boxly-update.net. What does this tell you?",
-    opts: ["The link is safe since it mentions Boxly", "The domain doesn't match our real domain — don't click", "It's probably a third party service we use", "Nothing, link previews aren't reliable"],
+    opts: ["It's probably a third party service we use", "The domain doesn't match our real domain — don't click", "Nothing, link previews aren't always reliable", "The link is safe since it mentions Boxly"],
     correct: 1,
-    fb: { right: "Correct — secure-boxly-update.net is not our domain. Hovering to check links is a good habit.", wrong: "Including 'boxly' in a domain name doesn't make it ours. The real domain is boxly.ai — anything else is suspicious." }
+    fb: { right: "Correct — secure-boxly-update.net is not our domain. Hovering to check links before clicking is a good habit.", wrong: "Including 'boxly' in a domain name doesn't make it ours. The real domain is boxly.ai — anything else is suspicious." }
   },
   {
     q: "Which of these subject lines is most likely to be a phishing attempt?",
-    opts: ["Team lunch this Friday", "Q2 report attached for review", "URGENT: Your account will be suspended in 2 hours", "Welcome to the all-hands meeting notes"],
-    correct: 2,
+    opts: ["Q2 report attached for review", "URGENT: Your account will be suspended in 2 hours", "Team lunch this Friday", "Welcome to the all-hands meeting notes"],
+    correct: 1,
     fb: { right: "Correct — urgency and threat of account suspension are classic phishing tactics designed to make you act without thinking.", wrong: "Urgency and threats like 'suspended in 2 hours' are the clearest phishing signals. Legitimate systems give reasonable notice." }
   },
   {
     q: "You get an email from priya@ebtechgroup.com asking you to urgently transfer a file to an external drive. What do you do?",
-    opts: ["Do it since it's from a real company domain", "Verify by calling or messaging Priya directly on Slack before acting", "Reply to the email to confirm", "Do it and inform your manager later"],
-    correct: 1,
+    opts: ["Do it and inform your manager later", "Reply to the email to confirm", "Do it since it's from a real company domain", "Verify by calling or messaging Priya directly on Slack before acting"],
+    correct: 3,
     fb: { right: "Correct — real company email accounts can be compromised. Always verify unusual requests through a separate channel like Slack or a phone call.", wrong: "Replying to the same email doesn't help if the account is compromised. Verify through Slack or a call." }
   },
   {
     q: "An email arrives with no urgent language, no suspicious links, just asking you to confirm your department and role for an internal audit. Is this safe?",
-    opts: ["Yes, it sounds routine and professional", "Not necessarily — verify the sender domain and confirm with IT before sharing any information", "Yes, audits are normal", "Yes, it doesn't ask for a password"],
-    correct: 1,
+    opts: ["Not necessarily — verify the sender domain and confirm with IT before sharing any information", "Yes, audits are normal company activity", "Yes, it sounds routine and professional", "Yes, it doesn't ask for a password so it's fine"],
+    correct: 0,
     fb: { right: "Correct — phishing doesn't always use urgency. Social engineering can be slow and patient. Always verify before sharing any information.", wrong: "Sophisticated attacks don't use urgency — they seem routine. Always verify the sender and confirm with IT before sharing anything." }
   },
   {
     q: "You receive a Google Docs link from a colleague asking you to review a shared document. The email looks normal. What should you check before clicking?",
-    opts: ["Nothing, Google links are always safe", "Whether the email was expected and whether the sender domain is correct", "Whether the document title sounds familiar", "Whether your colleague is online"],
-    correct: 1,
+    opts: ["Whether the document title sounds familiar", "Whether your colleague is currently online", "Nothing, Google links are always safe", "Whether the email was expected and whether the sender domain is correct"],
+    correct: 3,
     fb: { right: "Correct — even Google links can be used in phishing. Always check the sender domain and whether you were expecting the document.", wrong: "Google links are not automatically safe. Attackers use real Google Docs to host phishing content." }
   },
   {
     q: "An email says your IT ticket has been resolved and asks you to click to rate your experience. The link goes to support-ebtech.net. What do you do?",
-    opts: ["Click it since you may have raised a ticket recently", "Check the domain — support-ebtech.net is not our real service desk domain, don't click", "Rate it since it seems harmless", "Ignore it"],
-    correct: 1,
+    opts: ["Rate it since it seems harmless", "Ignore it", "Click it since you may have raised a ticket recently", "Check the domain — support-ebtech.net is not our real service desk domain, don't click"],
+    correct: 3,
     fb: { right: "Correct — support-ebtech.net is not our real service desk. Our service desk is at boxly-tm.atlassian.net.", wrong: "Even a familiar context like a ticket resolution can be faked. Always check the URL before clicking." }
   },
   {
     q: "You notice a colleague clicked a phishing link and entered their credentials. They ask you to keep it quiet. What do you do?",
-    opts: ["Respect their privacy and say nothing", "Advise them to report it to IT immediately — a compromised account puts everyone at risk", "Tell your manager informally", "Wait to see if anything happens first"],
-    correct: 1,
+    opts: ["Respect their privacy and say nothing", "Tell your manager informally without involving IT", "Advise them to report it to IT immediately — a compromised account puts everyone at risk", "Wait to see if anything happens to their account first"],
+    correct: 2,
     fb: { right: "Correct — a compromised account can be used to attack others in the organisation. It must be reported immediately.", wrong: "Keeping it quiet could allow an attacker to move through the organisation undetected. Always report immediately." }
   },
   {
     q: "You receive an email at 11pm asking you to approve an urgent payment before midnight or the company will face a penalty. What is the biggest red flag?",
-    opts: ["The late hour", "The extreme urgency and artificial deadline designed to prevent you from verifying", "The payment amount", "The sender being in finance"],
-    correct: 1,
+    opts: ["The payment amount mentioned", "The sender being in finance", "The late hour of the email", "The extreme urgency and artificial deadline designed to prevent you from verifying"],
+    correct: 3,
     fb: { right: "Correct — artificial deadlines that prevent verification are a hallmark of phishing and fraud. Always verify through a separate channel regardless of the deadline.", wrong: "The biggest red flag is the artificial urgency designed to stop you verifying the request through a separate channel." }
   },
   {
     q: "An email from noreply@google.com says your Google account has been compromised and you must reset it immediately via the link provided. What do you do?",
-    opts: ["Click the link since it's from Google", "Go directly to google.com yourself and check your account security — do not use the link", "Reply to ask if it's real", "Forward it to IT"],
-    correct: 1,
+    opts: ["Reply to ask if it's real", "Click the link since it's from Google", "Go directly to google.com yourself and check your account security — do not use the link", "Forward it to IT to handle"],
+    correct: 2,
     fb: { right: "Correct — even a legitimate-looking sender like noreply@google.com can be spoofed. Always navigate directly to the real site.", wrong: "Sender addresses can be spoofed. Never use a link in an email — always go directly to the site." }
   }
 ];
